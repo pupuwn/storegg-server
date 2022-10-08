@@ -1,0 +1,14 @@
+.select2-container .select2-selection--single {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 38px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.nav-item:hover{
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+  transition: 0.4s ease;
+}
