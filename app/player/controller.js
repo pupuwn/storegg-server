@@ -8,7 +8,6 @@ const Transaction = require('../transaction/model')
 const path = require('path')
 const fs = require('fs')
 const config = require('../../config')
-// const { arch } = require('os')
 
 module.exports = {
     landingPage: async(req, res)=>{
@@ -31,10 +30,17 @@ module.exports = {
             .populate('nominals')
             .populate('user', '_id name phoneNumber')
 
+            const payment = await Payment.find().populate('banks')
+
             if(!voucher){
                 return res.status(404).json({message: "Voucher game tidak ditemukan !"})
             }
-            res.status(200).json({data: voucher})
+            res.status(200).json({
+                data: {
+                    detail: voucher,
+                    payment
+                }
+            })
         }catch (err){
             res.status(500).json({message: err.message || `Internal server error`})
         }
