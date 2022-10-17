@@ -30,6 +30,7 @@ module.exports = {
             .populate('nominals')
             .populate('user', '_id name phoneNumber')
 
+            // menampilkan data payment
             const payment = await Payment.find().populate('banks')
 
             if(!voucher){
