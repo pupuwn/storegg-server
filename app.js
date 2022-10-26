@@ -29,7 +29,9 @@ app.use((req, res, next) => {
   next();
 })
 
-app.use(cors()) // middleware CORS
+app.use(cors({
+  origin: 'http://localhost:3000'
+})); // middleware CORS
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
