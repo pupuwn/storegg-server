@@ -21,10 +21,7 @@ const authRouter = require('./app/auth/router');
 
 const app = express();
 const URL = `/api/v1`;
-
-app.use(cors({
-  origin: 'http://localhost:3000'
-})); // middleware CORS
+app.use(cors()) // middleware CORS
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,6 +34,8 @@ app.use(session({
   saveUninitialized: true,
   cookie: {  }
 }))
+
+app.use(cors()) // middleware CORS
 app.use(flash()); //cara pake connect-flash
 app.use(methodOverride('_method')) //middleware Method-Override
 
