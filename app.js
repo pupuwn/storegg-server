@@ -23,6 +23,14 @@ const app = express();
 const URL = `/api/v1`;
 app.use(cors()) // middleware CORS
 
+app.get('/products/:id', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
+
+app.listen(80, function () {
+  console.log('CORS-enabled web server listening on port 80')
+})
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -34,8 +42,6 @@ app.use(session({
   saveUninitialized: true,
   cookie: {  }
 }))
-
-app.use(cors()) // middleware CORS
 app.use(flash()); //cara pake connect-flash
 app.use(methodOverride('_method')) //middleware Method-Override
 
