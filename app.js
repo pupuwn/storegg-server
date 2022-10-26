@@ -23,14 +23,6 @@ const app = express();
 const URL = `/api/v1`;
 app.use(cors()) // middleware CORS
 
-app.post('/auth/signup', function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
-})
-
-app.listen(80, function () {
-  console.log('CORS-enabled web server listening on port 80')
-})
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
