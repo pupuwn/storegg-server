@@ -1,6 +1,7 @@
 {
     "version": 2,
     "name": "storegg-server",
+    "buildCommand": "next build",
     "builds": [
         { 
             "src": "app.js", 
