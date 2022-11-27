@@ -238,7 +238,8 @@ module.exports = {
 
     editProfile: async(req, res, next)=>{
         try {
-            const { name = "", phoneNumber = "", } = req.body
+            const { name = "", phoneNumber = "", } = req.body;
+            
             const payload = {}
 
             if(name.length) payload.name = name
